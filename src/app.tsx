@@ -1,5 +1,6 @@
 import { Navigation } from 'lucide-react'
 import { Map } from '@vis.gl/react-maplibre'
+import { Button } from './components/ui/button'
 
 const App = () => {
   return (
@@ -13,9 +14,9 @@ const App = () => {
         mapStyle='https://tiles.openfreemap.org/styles/liberty'
       />
 
-      <button className='bg-white fixed left-4 bottom-4 p-2 z-10'>
+      <Button className='fixed left-4 bottom-4 z-10'>
         <Navigation />
-      </button>
+      </Button>
     </>
   )
 }
