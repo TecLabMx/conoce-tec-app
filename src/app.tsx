@@ -1,6 +1,6 @@
 import { Navigation } from 'lucide-react'
 import { Map } from '@vis.gl/react-maplibre'
-import { Button } from './components/ui/button'
+import { Button } from './components/ui/Button'
 
 const App = () => {
   return (
