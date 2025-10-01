@@ -1,6 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import './index.css'
-import App from './app.tsx'
+import { App } from './app.tsx'
+import { AppWrapper } from './components/others/AppWrapper'
 
-createRoot(document.getElementById('root')!).render(<App />)
+createRoot(document.getElementById('root')!).render(
+  <AppWrapper>
+    <App />
+  </AppWrapper>
+)
