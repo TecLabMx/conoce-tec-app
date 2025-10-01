@@ -14,7 +14,7 @@ const LocationTracker = () => {
         </Marker>
       )}
 
-      <div className='w-full max-w-md h-full fixed top-0 left-0 z-10 p-4'>
+      <div className='hidden w-full max-w-md h-full fixed top-0 left-0 z-10 p-4 xl:flex'>
         <aside className='w-full h-full flex flex-col gap-4 bg-white overflow-y-auto rounded-xl border-slate-200 border px-4 py-6'>
           {loading ? (
             <div
