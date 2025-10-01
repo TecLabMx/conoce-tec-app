@@ -1,3 +1,13 @@
+import type { LayerProps } from '@vis.gl/react-maplibre'
+
+export const DATA_LAYER: LayerProps = {
+  type: 'line',
+  paint: {
+    'line-color': '#007cbf',
+    'line-width': 4
+  }
+}
+
 export const INITIAL_VIEW_STATE = {
   longitude: -94.557891,
   latitude: 18.00682,
