@@ -42,13 +42,13 @@ const LocationTracker = () => {
               )}
               {Array.from({ length: 6 }).map((_, i) => (
                 <button
-                  className='w-full rounded-lg flex gap-4 border-slate-200 border p-4 items-center duration-200 cursor-pointer hover:border-black focus:border-black'
+                  className='w-full rounded-lg flex gap-4 border-slate-200 border p-4 items-center duration-200 cursor-pointer hover:border-slate-700 focus:border-slate-700'
                   key={i}
                 >
                   <div className='aspect-square w-11 flex bg-[#F2F3F2] text-black/50 rounded-lg'>
                     <Pin className='m-auto' size={18} />
                   </div>
-                  <div>
+                  <div className='flex flex-col items-start'>
                     <p className='text-base font-medium'>Laboratorio</p>
                     <p className='text-black/50 text-sm'>0.4 mil</p>
                   </div>
