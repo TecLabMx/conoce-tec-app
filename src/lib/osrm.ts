@@ -1,5 +1,5 @@
 import { toast } from 'sonner'
-import { OSRMResponseSchema, RouteFeature } from '../validations/geojson'
+import { OSRMResponseSchema, RouteFeature } from './validations/geojson'
 
 export interface FetchRouteProps {
   start: {
