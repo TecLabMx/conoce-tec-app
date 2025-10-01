@@ -2,10 +2,10 @@ import { Map, Marker, Source, Layer } from '@vis.gl/react-maplibre'
 import { Navigation, Pin } from 'lucide-react'
 import { Button } from './components/ui/Button'
 import { INITIAL_VIEW_STATE, INITIAL_MARKER_CLASSES, FINAL_MARKER_CLASSES, DATA_LAYER } from './lib/constants/map'
-import { useMap } from './hooks/useMap'
+import { useMapRoutes } from './hooks/useMapRoutes'
 
 const App = () => {
-  const { markers, route, onAddMarker } = useMap()
+  const { markers, route, onAddMarker } = useMapRoutes()
 
   return (
     <>
