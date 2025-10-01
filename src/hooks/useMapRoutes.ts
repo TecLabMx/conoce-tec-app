@@ -1,4 +1,4 @@
-import type { RouteFeature } from '../validations/geojson'
+import type { RouteFeature } from '../lib/validations/geojson'
 import type { MarkerItem } from '../types/misc'
 import { useState } from 'react'
 import { fetchRoute } from '../lib/osrm'
