@@ -1,4 +1,4 @@
-# OpenFreeMap + @vis.gl/react-maplibre Example
+# Conoce-TEC
 
 Built with [@vis.gl/react-maplibre](https://visgl.github.io/react-maplibre/)
 
