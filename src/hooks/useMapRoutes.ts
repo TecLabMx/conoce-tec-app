@@ -27,4 +27,4 @@ const useMapRoutes = () => {
   return { markers, route, onAddMarker }
 }
 
-export { useMapRoutes as useMap }
+export { useMapRoutes }
