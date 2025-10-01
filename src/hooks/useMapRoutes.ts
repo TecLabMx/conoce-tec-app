@@ -3,7 +3,7 @@ import type { MarkerItem } from '../types/misc'
 import { useState } from 'react'
 import { fetchRoute } from '../lib/osrm'
 
-const useMap = () => {
+const useMapRoutes = () => {
   const [markers, setMarkers] = useState<MarkerItem[]>([])
   const [route, setRoute] = useState<RouteFeature | null>(null)
 
@@ -27,4 +27,4 @@ const useMap = () => {
   return { markers, route, onAddMarker }
 }
 
-export { useMap }
+export { useMapRoutes as useMap }
