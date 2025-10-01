@@ -1,5 +1,6 @@
 import { Map, Marker, Source, Layer } from '@vis.gl/react-maplibre'
 import { Pin } from 'lucide-react'
+import { LocationTracker } from './components/map/LocationTracker'
 import { INITIAL_MAP_STATES, INITIAL_MARKER_CLASSES, FINAL_MARKER_CLASSES, DATA_LAYER } from './lib/constants/map'
 import { useMapRoutes } from './hooks/useMapRoutes'
 
@@ -18,6 +19,7 @@ const App = () => {
           <Pin className={i === 0 ? INITIAL_MARKER_CLASSES : FINAL_MARKER_CLASSES} />
         </Marker>
       ))}
+      <LocationTracker />
     </Map>
   )
 }
