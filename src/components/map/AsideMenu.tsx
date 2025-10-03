@@ -1,23 +1,16 @@
-import { useGeolocation } from '@uidotdev/usehooks'
-import { Navigation, CircleAlert, Pin, ChevronRight } from 'lucide-react'
-import { Marker } from '@vis.gl/react-maplibre'
+import type { FC } from 'react'
+import type { GeolocationState } from '@uidotdev/usehooks'
+import { CircleAlert, Pin, ChevronRight } from 'lucide-react'
 import { Input } from '../ui/Input'
 
-const LocationTracker = () => {
-  const { loading, error, latitude, longitude } = useGeolocation({
-    enableHighAccuracy: true,
-    maximumAge: 0,
-    timeout: 10000
-  })
+interface AsideMenuProps {
+  loading?: boolean
+  error?: GeolocationState['error']
+}
 
+const AsideMenu: FC<AsideMenuProps> = ({ loading, error }) => {
   return (
     <>
-      {latitude && longitude && (
-        <Marker longitude={longitude} latitude={latitude}>
-          <Navigation className='fill-red-400 stroke-red-600' />
-        </Marker>
-      )}
-
       <div className='hidden w-full max-w-md h-full fixed top-0 left-0 z-10 p-4 xl:flex'>
         <aside className='w-full h-full flex flex-col gap-4 bg-white overflow-y-auto rounded-xl border-slate-200 border px-4 py-6'>
           {loading ? (
@@ -67,4 +60,4 @@ const LocationTracker = () => {
   )
 }
 
-export { LocationTracker }
+export { AsideMenu }
