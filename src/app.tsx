@@ -1,13 +1,12 @@
 import { Map, Marker, Source, Layer } from '@vis.gl/react-maplibre'
 import { Navigation, Pin } from 'lucide-react'
 import { useGeolocation } from '@uidotdev/usehooks'
-import { AsideMenu } from './components/map/AsideMenu'
 import { INITIAL_MAP_STATES, INITIAL_MARKER_CLASSES, FINAL_MARKER_CLASSES, DATA_LAYER } from './lib/constants/map'
 import { useMapRoutes } from './hooks/useMapRoutes'
 
 const App = () => {
   const { markers, route, onAddMarker } = useMapRoutes()
-  const { loading, error, latitude, longitude } = useGeolocation({
+  const { latitude, longitude } = useGeolocation({
     enableHighAccuracy: true,
     maximumAge: 0,
     timeout: 10000
@@ -30,7 +29,6 @@ const App = () => {
           <Navigation className='fill-red-400 stroke-red-600' />
         </Marker>
       )}
-      <AsideMenu loading={loading} error={error} />
     </Map>
   )
 }
