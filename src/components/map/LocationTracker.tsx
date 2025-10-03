@@ -4,7 +4,11 @@ import { Marker } from '@vis.gl/react-maplibre'
 import { Input } from '../ui/Input'
 
 const LocationTracker = () => {
-  const { loading, error, latitude, longitude } = useGeolocation()
+  const { loading, error, latitude, longitude } = useGeolocation({
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: 10000
+  })
 
   return (
     <>
@@ -35,7 +39,7 @@ const LocationTracker = () => {
                   <p className='text-sm'>Tu ubicación no puede ser determinada. Por favor intentalo de nuevo.</p>
                 </span>
               ) : (
-                <span className='text-green-600 flex gap-2 items-center bg-red-50 p-2 border border-green-400 rounded-lg'>
+                <span className='text-green-600 flex gap-2 items-center bg-green-50 p-2 border border-green-400 rounded-lg'>
                   <CircleAlert size={20} />
                   <p className='text-sm'>Tu ubicación esta siendo obtenida en tiempo real.</p>
                 </span>
@@ -50,7 +54,7 @@ const LocationTracker = () => {
                   </div>
                   <div className='flex flex-col items-start'>
                     <p className='text-base font-medium'>Laboratorio</p>
-                    <p className='text-black/50 text-sm'>0.4 mil</p>
+                    <p className='text-black/50 text-sm'>Haz clic para trazar una ruta</p>
                   </div>
                   <ChevronRight className='text-black/50 ml-auto' />
                 </button>
