@@ -47,7 +47,7 @@ const AsideMenu: FC<AsideMenuProps> = ({ loading, error }) => {
                   </div>
                   <div className='flex flex-col items-start'>
                     <p className='text-base font-medium'>Laboratorio</p>
-                    <p className='text-black/50 text-sm'>Haz clic para trazar una ruta</p>
+                    <p className='text-black/50 text-sm'>Haz clic para marcar una ruta</p>
                   </div>
                   <ChevronRight className='text-black/50 ml-auto' />
                 </button>
