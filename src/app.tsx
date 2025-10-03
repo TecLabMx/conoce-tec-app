@@ -1,11 +1,17 @@
 import { Map, Marker, Source, Layer } from '@vis.gl/react-maplibre'
-import { Pin } from 'lucide-react'
-import { LocationTracker } from './components/map/LocationTracker'
+import { Navigation, Pin } from 'lucide-react'
+import { useGeolocation } from '@uidotdev/usehooks'
+import { AsideMenu } from './components/map/AsideMenu'
 import { INITIAL_MAP_STATES, INITIAL_MARKER_CLASSES, FINAL_MARKER_CLASSES, DATA_LAYER } from './lib/constants/map'
 import { useMapRoutes } from './hooks/useMapRoutes'
 
 const App = () => {
   const { markers, route, onAddMarker } = useMapRoutes()
+  const { loading, error, latitude, longitude } = useGeolocation({
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: 10000
+  })
 
   return (
     <Map onClick={async ({ lngLat }) => await onAddMarker(lngLat)} mapStyle='https://tiles.openfreemap.org/styles/liberty' {...INITIAL_MAP_STATES}>
@@ -19,7 +25,12 @@ const App = () => {
           <Pin className={i === 0 ? INITIAL_MARKER_CLASSES : FINAL_MARKER_CLASSES} />
         </Marker>
       ))}
-      <LocationTracker />
+      {latitude && longitude && (
+        <Marker longitude={longitude} latitude={latitude}>
+          <Navigation className='fill-red-400 stroke-red-600' />
+        </Marker>
+      )}
+      <AsideMenu loading={loading} error={error} />
     </Map>
   )
 }

@@ -1,19 +1,16 @@
-import { useGeolocation } from '@uidotdev/usehooks'
-import { Navigation, CircleAlert, Pin, ChevronRight } from 'lucide-react'
-import { Marker } from '@vis.gl/react-maplibre'
+import type { FC } from 'react'
+import type { GeolocationState } from '@uidotdev/usehooks'
+import { CircleAlert, Pin, ChevronRight } from 'lucide-react'
 import { Input } from '../ui/Input'
 
-const LocationTracker = () => {
-  const { loading, error, latitude, longitude } = useGeolocation()
+interface AsideMenuProps {
+  loading?: boolean
+  error?: GeolocationState['error']
+}
 
+const AsideMenu: FC<AsideMenuProps> = ({ loading, error }) => {
   return (
     <>
-      {latitude && longitude && (
-        <Marker longitude={longitude} latitude={latitude}>
-          <Navigation className='fill-red-400 stroke-red-600' />
-        </Marker>
-      )}
-
       <div className='hidden w-full max-w-md h-full fixed top-0 left-0 z-10 p-4 xl:flex'>
         <aside className='w-full h-full flex flex-col gap-4 bg-white overflow-y-auto rounded-xl border-slate-200 border px-4 py-6'>
           {loading ? (
@@ -35,7 +32,7 @@ const LocationTracker = () => {
                   <p className='text-sm'>Tu ubicación no puede ser determinada. Por favor intentalo de nuevo.</p>
                 </span>
               ) : (
-                <span className='text-green-600 flex gap-2 items-center bg-red-50 p-2 border border-green-400 rounded-lg'>
+                <span className='text-green-600 flex gap-2 items-center bg-green-50 p-2 border border-green-400 rounded-lg'>
                   <CircleAlert size={20} />
                   <p className='text-sm'>Tu ubicación esta siendo obtenida en tiempo real.</p>
                 </span>
@@ -50,7 +47,7 @@ const LocationTracker = () => {
                   </div>
                   <div className='flex flex-col items-start'>
                     <p className='text-base font-medium'>Laboratorio</p>
-                    <p className='text-black/50 text-sm'>0.4 mil</p>
+                    <p className='text-black/50 text-sm'>Haz clic para marcar una ruta</p>
                   </div>
                   <ChevronRight className='text-black/50 ml-auto' />
                 </button>
@@ -63,4 +60,4 @@ const LocationTracker = () => {
   )
 }
 
-export { LocationTracker }
+export { AsideMenu }
