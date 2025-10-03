@@ -14,7 +14,7 @@ const App = () => {
   })
 
   return (
-    <Map onClick={async ({ lngLat }) => await onAddMarker(lngLat)} mapStyle='https://tiles.openfreemap.org/styles/liberty' {...INITIAL_MAP_STATES}>
+    <Map onClick={async ({ lngLat }) => await onAddMarker(lngLat)} mapStyle='/styles/dark.json' {...INITIAL_MAP_STATES}>
       {route && (
         <Source id='route' type='geojson' data={route}>
           <Layer {...DATA_LAYER} />
