@@ -16,7 +16,7 @@ const ERROR_MESSAGE = 'Ocurrió un error al trazar la ruta'
 
 export const fetchRoute = async ({ start, end }: FetchRouteProps) => {
   try {
-    const URL = `https://router.project-osrm.org/route/v1/walking/${start.lng},${start.lat};${end.lng},${end.lat}?overview=full&geometries=geojson`
+    const URL = `https://router.project-osrm.org/route/v1/walking/${start.lng},${start.lat};${end.lng},${end.lat}?overview=full&geometries=geojson&steps=true`
     const res = await fetch(URL).then((res) => res.json())
 
     const { data, error } = OSRMResponseSchema.safeParse(res)
